@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <bean id="userDao" class="com.yang.springframework.bean.UserDao" init-method="init" destroy-method="destroy" />
+
+    <bean id="userService" class="com.yang.springframework.bean.UserService">
+        <property name="name" value="小张" />
+        <property name="userDao" ref="userDao" />
+        <property name="location" value="深圳" />
+        <property name="company" value="腾讯" />
+    </bean>
+</beans>
