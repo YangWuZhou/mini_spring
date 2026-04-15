@@ -1,46 +1,44 @@
 package com.yang.springframework.bean;
 
-import com.yang.springframework.beans.BeansException;
-import com.yang.springframework.beans.factory.BeanClassLoaderAware;
-import com.yang.springframework.beans.factory.BeanFactory;
-import com.yang.springframework.beans.factory.BeanFactoryAware;
-import com.yang.springframework.beans.factory.BeanNameAware;
-import com.yang.springframework.context.ApplicationContext;
-import com.yang.springframework.context.ApplicationContextAware;
-import lombok.Data;
-
-@Data
-public class UserService implements BeanNameAware, BeanFactoryAware, BeanClassLoaderAware, ApplicationContextAware {
+public class UserService {
     private String name;
-    private UserDao userDao;
+    private IUserDao userDao;
     private String location;
     private String company;
-
-    private BeanFactory beanFactory;
-
-    private ApplicationContext applicationContext;
 
     public void queryUserInfo(String id) {
         System.out.println("用户名: " + userDao.queryUserName(id) + ", 别名: " + name + ", 地址: " + location + ", 公司: " + company);
     }
 
-    @Override
-    public void setBeanClassLoader(ClassLoader classLoader) {
-        System.out.println("ClassLoader: " + classLoader);
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        this.beanFactory = beanFactory;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("BeanName: " + name);
+    public IUserDao getUserDao() {
+        return userDao;
     }
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
+    public void setUserDao(IUserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 }
