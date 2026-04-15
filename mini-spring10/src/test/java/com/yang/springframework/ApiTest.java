@@ -20,5 +20,6 @@ public class ApiTest {
         UserService userService2 = applicationContext.getBean("userService", UserService.class);
 
         Assert.notEquals(userService1, userService2);
+        userService1.queryUserInfo("10001");
     }
 }
