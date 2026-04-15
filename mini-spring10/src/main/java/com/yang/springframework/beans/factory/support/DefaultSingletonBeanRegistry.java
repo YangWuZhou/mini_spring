@@ -24,6 +24,9 @@ import java.util.Set;
  * 此类既不假设bean定义的概念，也不限定bean实例的具体创建过程。它也可以作为嵌套辅助类进行委托调用。
  */
 public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
+
+    protected static final Object NULL_OBJECT = new Object();
+
     /** 单例对象的缓存：bean名称到bean实例的映射。*/
     private final Map<String, Object> singletonObjects = new HashMap<>();
 
