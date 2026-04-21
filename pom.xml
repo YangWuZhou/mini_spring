@@ -20,6 +20,7 @@
         <module>mini-spring8</module>
         <module>mini-spring9</module>
         <module>mini-spring10</module>
+        <module>mini-spring11</module>
     </modules>
 
     <properties>
