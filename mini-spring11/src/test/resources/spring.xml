@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <beans>
-    <bean id="proxyUserDao" class="com.yang.springframework.bean.ProxyBeanFactory"/>
+    <bean class="com.yang.springframework.event.ContextClosedEventListener"/>
+    <bean class="com.yang.springframework.event.ContextCustomEventListener"/>
+    <bean class="com.yang.springframework.event.ContextRefreshedEventListener"/>
 
-    <bean id="userService" class="com.yang.springframework.bean.UserService" scope="prototype">
-        <property name="name" value="小张" />
-        <property name="userDao" ref="proxyUserDao" />
-        <property name="location" value="深圳" />
-        <property name="company" value="腾讯" />
-    </bean>
 </beans>

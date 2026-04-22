@@ -1,5 +1,7 @@
 package com.yang.springframework.context;
 
+import com.yang.springframework.beans.core.io.ResourceLoader;
+import com.yang.springframework.beans.factory.HierarchicalBeanFactory;
 import com.yang.springframework.beans.factory.ListableBeanFactory;
 
 /**
@@ -16,5 +18,5 @@ import com.yang.springframework.beans.factory.ListableBeanFactory;
  * 除了标准的 org.springframework.beans.factory.BeanFactory 生命周期功能外，ApplicationContext 的实现还会检测并调用 ApplicationContextAware
  * 类型的 Bean，以及 ResourceLoaderAware、ApplicationEventPublisherAware 和 MessageSourceAware 类型的 Bean。
  */
-public interface ApplicationContext extends ListableBeanFactory {
+public interface ApplicationContext extends ListableBeanFactory, HierarchicalBeanFactory, ResourceLoader, ApplicationEventPublisher {
 }

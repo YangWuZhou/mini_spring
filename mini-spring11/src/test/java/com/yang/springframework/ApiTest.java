@@ -1,25 +1,16 @@
 package com.yang.springframework;
 
-import cn.hutool.core.lang.Assert;
-import com.yang.springframework.bean.UserService;
 import com.yang.springframework.context.support.ClassPathXmlApplicationContext;
+import com.yang.springframework.event.CustomEvent;
 import org.junit.jupiter.api.Test;
 
 public class ApiTest {
 
-    /**
-     * 测试FactoryBean
-     */
     @Test
-    public void test_FactoryBean() {
+    public void test_EventAndEventListener() {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        applicationContext.publishEvent(new CustomEvent(applicationContext, 12321312L, "这是一条消息"));
+
         applicationContext.registerShutdownHook();
-
-        // 获取Bean对象调用方法
-        UserService userService1 = applicationContext.getBean("userService", UserService.class);
-        UserService userService2 = applicationContext.getBean("userService", UserService.class);
-
-        Assert.notEquals(userService1, userService2);
-        userService1.queryUserInfo("10001");
     }
 }
